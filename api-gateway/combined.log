@@ -1,0 +1,9 @@
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-10-05T14:15:35.279Z"}
+{"level":"info","message":"Identity service URL: http://localhost:3001","service":"api-gateway","timestamp":"2025-10-05T14:15:35.286Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2025-10-05T14:15:35.287Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-10-05T14:17:05.422Z"}
+{"level":"info","message":"Request body: {\"username\":\"palak\",\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-10-05T14:17:05.424Z"}
+{"level":"error","message":"Proxy error: ","service":"api-gateway","timestamp":"2025-10-05T14:17:05.437Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-10-05T14:17:46.073Z"}
+{"level":"info","message":"Request body: {\"username\":\"palak\",\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-10-05T14:17:46.074Z"}
+{"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2025-10-05T14:17:46.881Z"}
