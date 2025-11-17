@@ -7,3 +7,33 @@
 {"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-10-05T14:17:46.073Z"}
 {"level":"info","message":"Request body: {\"username\":\"palak\",\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-10-05T14:17:46.074Z"}
 {"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2025-10-05T14:17:46.881Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-11-03T15:58:06.171Z"}
+{"level":"info","message":"Identity service URL: http://localhost:3001","service":"api-gateway","timestamp":"2025-11-03T15:58:06.177Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2025-11-03T15:58:06.178Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-11-03T16:00:01.378Z"}
+{"level":"info","message":"Request body: {\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-03T16:00:01.380Z"}
+{"level":"info","message":"Response received from Identity service: 500","service":"api-gateway","timestamp":"2025-11-03T16:00:01.463Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-11-03T16:00:39.072Z"}
+{"level":"info","message":"Request body: {\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-03T16:00:39.072Z"}
+{"level":"info","message":"Response received from Identity service: 500","service":"api-gateway","timestamp":"2025-11-03T16:00:39.158Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-11-03T16:02:29.681Z"}
+{"level":"info","message":"Request body: {\"email\":\"palak2106@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-03T16:02:29.698Z"}
+{"level":"info","message":"Response received from Identity service: 200","service":"api-gateway","timestamp":"2025-11-03T16:02:35.699Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-11-03T17:41:06.580Z"}
+{"level":"info","message":"Identity service URL: http://localhost:3001","service":"api-gateway","timestamp":"2025-11-03T17:41:06.584Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2025-11-03T17:41:06.585Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-11-17T12:23:21.659Z"}
+{"level":"info","message":"Identity service URL: http://localhost:3001","service":"api-gateway","timestamp":"2025-11-17T12:23:21.664Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2025-11-17T12:23:21.665Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-11-17T12:25:46.443Z"}
+{"level":"info","message":"Request body: {\"username\":\"sejal\",\"email\":\"sejal1906@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-17T12:25:46.444Z"}
+{"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2025-11-17T12:25:48.321Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-11-17T12:26:13.750Z"}
+{"level":"info","message":"Request body: {\"email\":\"sejal1906@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-17T12:26:13.751Z"}
+{"level":"info","message":"Response received from Identity service: 200","service":"api-gateway","timestamp":"2025-11-17T12:26:14.048Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-11-17T12:26:58.090Z"}
+{"level":"info","message":"Request body: {\"username\":\"sejal\",\"email\":\"sejal1906@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2025-11-17T12:26:58.092Z"}
+{"level":"info","message":"Response received from Identity service: 400","service":"api-gateway","timestamp":"2025-11-17T12:27:04.047Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-11-17T12:27:17.674Z"}
+{"level":"info","message":"Request body: {\"username\":\"seja5l\",\"email\":\"sejal1906@gmail.com\",\"password\":\"pas3\"}","service":"api-gateway","timestamp":"2025-11-17T12:27:17.675Z"}
+{"level":"info","message":"Response received from Identity service: 400","service":"api-gateway","timestamp":"2025-11-17T12:27:17.695Z"}
