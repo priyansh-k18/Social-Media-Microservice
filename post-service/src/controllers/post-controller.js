@@ -1,0 +1,153 @@
+const logger = require('../utils/logger');
+const { validateCreatePost } = require('../utils/validate');
+const Post = require('../models/Post');
+
+async function invalidatePostCache(req,input){
+   const cachedkey = `post:${input}`
+   await req.redisClient.del(cachedkey);
+
+   const keys = await req.redisClient.keys("post:*");
+   if(keys.length > 0){
+      await req.redisClient.del(keys)
+   }
+}
+
+const createPost = async(req , res) => {
+    logger.info('Create post endpoint hit');
+    try{
+       const {error} = validateCreatePost(req.body);
+       if(error){
+          logger.warn("Validation error", error.details[0].message);
+          return res.status(400).json({
+             success : false,
+             message : error.details[0].message,
+          });
+       }
+        const {content,mediaIds} = req.body;
+        const newlyCreatedPost = new Post({
+            user : req.user.userId,
+            content,
+            mediaIds : mediaIds || [],
+        })
+
+        await newlyCreatedPost.save();
+        await invalidatePostCache(req, newlyCreatedPost._id.toString());
+        logger.info("Post created successfully", newlyCreatedPost);
+        res.status(201).json({
+            success : true,
+            message : 'Post created successfully'
+        })
+
+
+    }catch(e){
+       logger.error('Error while creating post', e);
+       res.status(500).json({
+          success : false,
+          message : 'Error creating post'
+       })
+    }
+};
+
+const getAllPosts = async(req , res) => {
+    try{
+         
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      const startIndex = (page - 1) * limit
+
+      const cachekey = `posts:${page}:${limit}`;
+      const cachedPosts = await req.redisClient.get(cachekey);
+     
+      if(cachedPosts){
+         return res.json(JSON.parse(cachedPosts));
+      }
+
+      const posts = await Post.find({})
+         .sort({ createdAt: -1})
+         .skip(startIndex)
+         .limit(limit);
+
+      const totalNoOfPosts = await Post.countDocuments()
+
+      const result = {
+         posts,
+         currentpage : page,
+         totalPages : Math.ceil(totalNoOfPosts/limit),
+         totalPosts : totalNoOfPosts
+      }
+
+      //save your posts in redis cache
+      await req.redisClient.setex(cachekey,300, JSON.stringify(result))
+
+      res.json(result)
+    }catch(e){
+       logger.error('Error fetching post',error);
+       res.status(500).json({
+          success : false,
+          message : 'Error fetching post'
+       })
+    }
+};
+
+const getPost = async(req , res) => {
+    try{
+      const postId = req.params.id;
+      const cachekey = `post:${postId}`;
+      const cachedPost = await req.redisClient.get(cachekey);
+
+      if(cachedPost){
+         return res.json(JSON.parse(cachedPost));
+      }
+
+      const singlePostDetailsbyId = await Post.findById(postId);
+
+      if(!singlePostDetailsbyId){
+         return res.status(404).json({
+            message : 'Post not found',
+            success : false
+         })
+      }
+
+      await req.redisClient.setex(cachekey, 3600, JSON.stringify(singlePostDetailsbyId));
+      res.json(singlePostDetailsbyId);
+
+    }catch(e){
+       logger.error('Error fetching post',error);
+       res.status(500).json({
+          success : false,
+          message : 'Error fetching post by ID'
+       })
+    }
+};
+
+const deletePost = async(req , res) => {
+    try{
+        
+      const post = await Post.findOneAndDelete({
+         _id : req.params.id,
+         user: req.user.userId
+
+      });
+
+       if(!post) {
+         return res.status(404).json({
+          success: false,
+          message: "Post not found",
+        });
+       }
+      await invalidatePostCache(req,req.params.id);
+      res.json({
+         message: "Post deleted successfully",
+         
+      })
+
+    }catch(e){
+       logger.error('Error deleting post',error);
+       res.status(500).json({
+          success : false,
+          message : 'Error deleting post'
+       })
+    }
+};
+
+module.exports = {createPost,getAllPosts, getPost, deletePost};

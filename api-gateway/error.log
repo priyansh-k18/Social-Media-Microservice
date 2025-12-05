@@ -1,1 +1,4 @@
 {"level":"error","message":"Proxy error: ","service":"api-gateway","timestamp":"2025-10-05T14:17:05.437Z"}
+{"level":"error","message":"Proxy error: Cannot set properties of undefined (setting 'Content-Type')","service":"api-gateway","timestamp":"2025-12-01T10:11:27.483Z"}
+{"level":"error","message":"Proxy error: ","service":"api-gateway","timestamp":"2025-12-01T10:13:49.776Z"}
+{"level":"error","message":"Proxy error: AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1139:18)\n    at afterConnectMultiple (node:net:1712:7)","service":"api-gateway","timestamp":"2025-12-01T10:16:27.116Z"}

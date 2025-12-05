@@ -1,8 +1,11 @@
-node_modules
+node_modules/
 .env
-# Log files
-*.log
+
+# Logs
 logs/
+*.log
+combined.log
+error.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
