@@ -256,3 +256,7 @@
 {"level":"info","message":"Received GET request to /v1/posts/all-posts","service":"api-gateway","timestamp":"2025-12-05T20:25:54.832Z"}
 {"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2025-12-05T20:25:54.833Z"}
 {"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2025-12-05T20:25:54.972Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-12-05T20:31:57.188Z"}
+{"level":"info","message":"Identity service is running on port http://localhost:3001","service":"api-gateway","timestamp":"2025-12-05T20:31:57.192Z"}
+{"level":"info","message":"Post service is running on port http://localhost:3002","service":"api-gateway","timestamp":"2025-12-05T20:31:57.193Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2025-12-05T20:31:57.193Z"}
