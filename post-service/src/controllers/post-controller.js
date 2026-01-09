@@ -1,6 +1,8 @@
 const logger = require('../utils/logger');
 const { validateCreatePost } = require('../utils/validate');
 const Post = require('../models/Post');
+const { publishEvent } = require('../utils/rabbitmq');
+const mongoose = require('mongoose');
 
 async function invalidatePostCache(req,input){
    const cachedkey = `post:${input}`
@@ -81,7 +83,7 @@ const getAllPosts = async(req , res) => {
 
       res.json(result)
     }catch(e){
-       logger.error('Error fetching post',error);
+       logger.error('Error fetching post',e);
        res.status(500).json({
           success : false,
           message : 'Error fetching post'
@@ -92,27 +94,43 @@ const getAllPosts = async(req , res) => {
 const getPost = async(req , res) => {
     try{
       const postId = req.params.id;
+      
+      logger.info(`Fetching post with ID: ${postId}`);
+
+      // Validate postId is a valid ObjectId
+      if (!mongoose.Types.ObjectId.isValid(postId)) {
+          logger.warn(`Invalid post ID format: ${postId}`);
+          return res.status(400).json({
+              success: false,
+              message: "Invalid post ID format",
+          });
+      }
+
       const cachekey = `post:${postId}`;
       const cachedPost = await req.redisClient.get(cachekey);
 
       if(cachedPost){
+         logger.info(`Post found in cache: ${postId}`);
          return res.json(JSON.parse(cachedPost));
       }
 
+      logger.info(`Post not in cache, querying database for: ${postId}`);
       const singlePostDetailsbyId = await Post.findById(postId);
 
       if(!singlePostDetailsbyId){
+         logger.warn(`Post not found in database: ${postId}`);
          return res.status(404).json({
             message : 'Post not found',
             success : false
          })
       }
 
+      logger.info(`Post found: ${postId}, caching result`);
       await req.redisClient.setex(cachekey, 3600, JSON.stringify(singlePostDetailsbyId));
       res.json(singlePostDetailsbyId);
 
     }catch(e){
-       logger.error('Error fetching post',error);
+       logger.error('Error fetching post',e);
        res.status(500).json({
           success : false,
           message : 'Error fetching post by ID'
@@ -122,27 +140,75 @@ const getPost = async(req , res) => {
 
 const deletePost = async(req , res) => {
     try{
-        
-      const post = await Post.findOneAndDelete({
-         _id : req.params.id,
-         user: req.user.userId
+        const postId = req.params.id;
+        const userId = req.user.userId;
 
-      });
+        logger.info(`Attempting to delete post: ${postId} by user: ${userId}`);
 
-       if(!post) {
-         return res.status(404).json({
-          success: false,
-          message: "Post not found",
+        // Validate postId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(postId)) {
+            logger.warn(`Invalid post ID format: ${postId}`);
+            return res.status(400).json({
+                success: false,
+                message: "Invalid post ID format",
+            });
+        }
+
+        // Validate userId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            logger.warn(`Invalid user ID format: ${userId}`);
+            return res.status(400).json({
+                success: false,
+                message: "Invalid user ID format",
+            });
+        }
+
+        // First find the post to check if it exists and belongs to the user
+        logger.info(`Querying for post with _id: ${postId}, user: ${userId}`);
+        const post = await Post.findOne({
+            _id: postId,
+            user: userId
         });
-       }
-      await invalidatePostCache(req,req.params.id);
-      res.json({
-         message: "Post deleted successfully",
-         
-      })
+
+        if(!post) {
+            // Check if post exists at all (for better error message)
+            logger.info(`Post not found with user match, checking if post exists at all...`);
+            const postExists = await Post.findById(postId);
+            if (!postExists) {
+                logger.warn(`Post does not exist in database: ${postId}`);
+                return res.status(404).json({
+                    success: false,
+                    message: "Post not found",
+                });
+            } else {
+                logger.warn(`Post exists but user mismatch. Post user: ${postExists.user}, Request user: ${userId}`);
+                return res.status(403).json({
+                    success: false,
+                    message: "You don't have permission to delete this post",
+                });
+            }
+        }
+
+        logger.info(`Post found and belongs to user. Post ID: ${post._id}, User ID: ${post.user}`);
+
+        // Delete the post
+        await Post.findByIdAndDelete(postId);
+
+        // Publish post deleted event
+        await publishEvent('post.deleted',{
+            postId : post._id.toString(),
+            userId : userId,
+            mediaIds : post.mediaIds || [],
+        });
+
+        await invalidatePostCache(req, postId);
+        res.json({
+            success: true,
+            message: "Post deleted successfully",
+        })
 
     }catch(e){
-       logger.error('Error deleting post',error);
+       logger.error('Error deleting post',e);
        res.status(500).json({
           success : false,
           message : 'Error deleting post'

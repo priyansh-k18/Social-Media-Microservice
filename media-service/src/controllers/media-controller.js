@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const Media = require('../models/media')
 const { uploadMediaToCloudinary } = require('../utils/cloudinary')
 const logger = require('../utils/logger')
@@ -14,7 +15,16 @@ const uploadMedia = async (req , res) => {
       }
 
       const {originalname,mimetype,buffer} = req.file
-      const userId = req.userId
+      const userId = req.user.userId
+      
+      // Validate userId is a valid ObjectId
+      if (!mongoose.Types.ObjectId.isValid(userId)) {
+        logger.error('Invalid userId format:', userId)
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid user ID format'
+        })
+      }
 
       logger.info(`File details: name=${originalname}, type=${mimetype}`);
       logger.info('Uploading to cloudinary starting...')
@@ -38,10 +48,11 @@ const uploadMedia = async (req , res) => {
 
       })
     }catch(error){
-       logger.error("Error creating media",erorr);
+       logger.error("Error creating media",error);
        res.status(500).json({
         success : false,
-        message: "Error creating media"
+        message: "Error creating media",
+        error: error.message
        });
     }
 };

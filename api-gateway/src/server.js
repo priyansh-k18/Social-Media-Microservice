@@ -95,6 +95,7 @@ app.use(
   "/v1/media",
   validateToken,
   proxy(process.env.MEDIA_SERVICE_URL, {
+    ...proxyOptions,
     proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
       // attach user id to downstream service
       proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
