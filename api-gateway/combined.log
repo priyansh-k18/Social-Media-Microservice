@@ -352,3 +352,60 @@
 {"level":"info","message":"Received POST request to /v1/posts/create-post","service":"api-gateway","timestamp":"2026-01-09T16:06:20.448Z"}
 {"level":"info","message":"Request body: {\"content\":\"wallpaper hai jii\",\"mediaIds\":[\"696126c964ab6af36d4ce6d5\"]}","service":"api-gateway","timestamp":"2026-01-09T16:06:20.449Z"}
 {"level":"info","message":"Response received from Post service: 400","service":"api-gateway","timestamp":"2026-01-09T16:06:20.456Z"}
+{"level":"info","message":"Received POST request to /v1/posts/create-post","service":"api-gateway","timestamp":"2026-01-09T16:10:08.782Z"}
+{"level":"info","message":"Request body: {\"content\":\"wallpaper hai jii\",\"mediaIds\":[\"696126c964ab6af36d4ce6d5\"]}","service":"api-gateway","timestamp":"2026-01-09T16:10:08.783Z"}
+{"level":"info","message":"Response received from Post service: 201","service":"api-gateway","timestamp":"2026-01-09T16:10:08.927Z"}
+{"level":"info","message":"Received GET request to /v1/posts/all-posts","service":"api-gateway","timestamp":"2026-01-09T16:10:20.536Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:10:20.536Z"}
+{"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:10:20.745Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/696126c964ab6af36d4ce6d5","service":"api-gateway","timestamp":"2026-01-09T16:11:01.785Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:11:01.786Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:11:02.230Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:11:28.918Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:11:28.919Z"}
+{"level":"info","message":"Response received from Post service: 500","service":"api-gateway","timestamp":"2026-01-09T16:11:29.013Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:12:55.124Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:12:55.124Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:12:55.233Z"}
+{"level":"info","message":"Received GET request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:13:27.575Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:13:27.575Z"}
+{"level":"warn","message":"Invalid token!","service":"api-gateway","timestamp":"2026-01-09T16:13:27.577Z"}
+{"level":"info","message":"Received GET request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:13:47.020Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:13:47.021Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:13:47.116Z"}
+{"level":"info","message":"Received GET request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:16:27.954Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:16:27.954Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:16:28.068Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:16:33.539Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:16:33.539Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:16:33.681Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:18:25.840Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:18:25.841Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:18:26.123Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:18:47.607Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:18:47.607Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:18:47.744Z"}
+{"level":"info","message":"Received GET request to /v1/posts/6961286023e33895a3d8bd8d","service":"api-gateway","timestamp":"2026-01-09T16:18:53.288Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:18:53.289Z"}
+{"level":"info","message":"Response received from Post service: 404","service":"api-gateway","timestamp":"2026-01-09T16:18:53.413Z"}
+{"level":"info","message":"Received GET request to /v1/posts/69606ddcb03a9383cc8e4d7f","service":"api-gateway","timestamp":"2026-01-09T16:19:25.423Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:19:25.424Z"}
+{"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:19:25.499Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/69606ddcb03a9383cc8e4d7f","service":"api-gateway","timestamp":"2026-01-09T16:19:42.484Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:19:42.484Z"}
+{"level":"info","message":"Response received from Post service: 403","service":"api-gateway","timestamp":"2026-01-09T16:19:42.712Z"}
+{"level":"info","message":"Received POST request to /v1/media/upload","service":"api-gateway","timestamp":"2026-01-09T16:20:38.355Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:20:38.355Z"}
+{"level":"info","message":"Response received from Media service: 201","service":"api-gateway","timestamp":"2026-01-09T16:20:44.012Z"}
+{"level":"info","message":"Received POST request to /v1/posts/create-post","service":"api-gateway","timestamp":"2026-01-09T16:21:25.228Z"}
+{"level":"info","message":"Request body: {\"content\":\"New Work, New Life\",\"mediaIds\":[\"69612adb64ab6af36d4ce6d7\"]}","service":"api-gateway","timestamp":"2026-01-09T16:21:25.229Z"}
+{"level":"info","message":"Response received from Post service: 201","service":"api-gateway","timestamp":"2026-01-09T16:21:25.326Z"}
+{"level":"info","message":"Received GET request to /v1/posts/all-posts","service":"api-gateway","timestamp":"2026-01-09T16:21:33.676Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:21:33.677Z"}
+{"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:21:33.915Z"}
+{"level":"info","message":"Received GET request to /v1/posts/69612b05d0887113ba615799","service":"api-gateway","timestamp":"2026-01-09T16:22:00.844Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:22:00.844Z"}
+{"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:22:00.906Z"}
+{"level":"info","message":"Received DELETE request to /v1/posts/69612b05d0887113ba615799","service":"api-gateway","timestamp":"2026-01-09T16:22:14.454Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:22:14.455Z"}
+{"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:22:14.715Z"}
