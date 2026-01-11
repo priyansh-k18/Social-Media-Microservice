@@ -409,3 +409,39 @@
 {"level":"info","message":"Received DELETE request to /v1/posts/69612b05d0887113ba615799","service":"api-gateway","timestamp":"2026-01-09T16:22:14.454Z"}
 {"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-09T16:22:14.455Z"}
 {"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2026-01-09T16:22:14.715Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2026-01-11T17:56:50.629Z"}
+{"level":"info","message":"Identity service is running on port http://localhost:3001","service":"api-gateway","timestamp":"2026-01-11T17:56:50.633Z"}
+{"level":"info","message":"Post service is running on port http://localhost:3002","service":"api-gateway","timestamp":"2026-01-11T17:56:50.633Z"}
+{"level":"info","message":"Media service is running on port http://localhost:3003","service":"api-gateway","timestamp":"2026-01-11T17:56:50.633Z"}
+{"level":"info","message":"Search service is running on port http://localhost:3004","service":"api-gateway","timestamp":"2026-01-11T17:56:50.634Z"}
+{"level":"info","message":"Redis URL: redis://localhost:6379","service":"api-gateway","timestamp":"2026-01-11T17:56:50.634Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2026-01-11T17:59:18.194Z"}
+{"level":"info","message":"Request body: {\"username\":\"sushmita\",\"email\":\"sushmita1212@gmail.com\",\"password\":\"password123\"}","service":"api-gateway","timestamp":"2026-01-11T17:59:18.194Z"}
+{"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2026-01-11T17:59:18.819Z"}
+{"level":"info","message":"Received POST request to /v1/media/upload","service":"api-gateway","timestamp":"2026-01-11T18:00:56.599Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:00:56.600Z"}
+{"level":"info","message":"Response received from Media service: 201","service":"api-gateway","timestamp":"2026-01-11T18:01:10.244Z"}
+{"level":"info","message":"Received POST request to /v1/posts/create-post","service":"api-gateway","timestamp":"2026-01-11T18:01:29.907Z"}
+{"level":"info","message":"Request body: {\"content\":\"figma is too good\",\"mediaIds\":[\"6963e5642ed0ae26a94ea520\"]}","service":"api-gateway","timestamp":"2026-01-11T18:01:29.908Z"}
+{"level":"error","message":"Proxy error: AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1139:18)\n    at afterConnectMultiple (node:net:1712:7)","service":"api-gateway","timestamp":"2026-01-11T18:01:29.912Z"}
+{"level":"info","message":"Received POST request to /v1/posts/create-post","service":"api-gateway","timestamp":"2026-01-11T18:05:10.082Z"}
+{"level":"info","message":"Request body: {\"content\":\"figma is too good\",\"mediaIds\":[\"6963e5642ed0ae26a94ea520\"]}","service":"api-gateway","timestamp":"2026-01-11T18:05:10.082Z"}
+{"level":"info","message":"Response received from Post service: 201","service":"api-gateway","timestamp":"2026-01-11T18:05:10.334Z"}
+{"level":"info","message":"Received GET request to /v1/search/post?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:07:03.193Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:07:03.193Z"}
+{"level":"error","message":"Proxy error: AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1139:18)\n    at afterConnectMultiple (node:net:1712:7)","service":"api-gateway","timestamp":"2026-01-11T18:07:03.198Z"}
+{"level":"info","message":"Received GET request to /v1/search/post?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:08:40.039Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:08:40.039Z"}
+{"level":"info","message":"Response received from Search service: 404","service":"api-gateway","timestamp":"2026-01-11T18:08:40.091Z"}
+{"level":"info","message":"Received GET request to /v1/search/posts?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:09:16.427Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:09:16.427Z"}
+{"level":"info","message":"Response received from Search service: 500","service":"api-gateway","timestamp":"2026-01-11T18:09:16.441Z"}
+{"level":"info","message":"Received GET request to /v1/search/posts?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:11:19.662Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:11:19.662Z"}
+{"level":"info","message":"Response received from Search service: 500","service":"api-gateway","timestamp":"2026-01-11T18:11:19.689Z"}
+{"level":"info","message":"Received GET request to /v1/search/posts?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:16:10.701Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:16:10.701Z"}
+{"level":"info","message":"Response received from Search service: 500","service":"api-gateway","timestamp":"2026-01-11T18:16:10.729Z"}
+{"level":"info","message":"Received GET request to /v1/search/posts?query=figma","service":"api-gateway","timestamp":"2026-01-11T18:18:28.722Z"}
+{"level":"info","message":"Request body: undefined","service":"api-gateway","timestamp":"2026-01-11T18:18:28.723Z"}
+{"level":"info","message":"Response received from Search service: 200","service":"api-gateway","timestamp":"2026-01-11T18:18:28.808Z"}
