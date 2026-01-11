@@ -5,10 +5,10 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon src/server.js",
-    "start":"node src/server.js"
+    "dev": "node init && nodemon src/server.js",
+    "start": "node init && node src/server.js"
   },
-   "dependencies": {
+  "dependencies": {
     "amqplib": "^0.10.9",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
